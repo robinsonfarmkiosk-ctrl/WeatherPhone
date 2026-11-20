@@ -1,0 +1,33 @@
+# Fly.io configuration for Weather SIP Alerter
+# Docs: https://docs.fly.io/reference/configuration
+
+app = "weather-sip-alerter"
+primary_region = "dfw"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  NWS_POINT = "33.7751,-89.8084"
+  ALERT_SEVERITIES = "Extreme,Severe"
+  POLL_INTERVAL_SECONDS = "60"
+  FLYNUMBER_SIP_DOMAIN = "sip.flynumber.com"
+  STATE_DIR = "/data"
+  DRY_RUN = "true"
+
+[[mounts]]
+  source = "alerter_data"
+  destination = "/data"
+
+# Note on UDP / SIP:
+# Outbound-only SIP registration and calling works without exposing public ports.
+# If you later accept INBOUND SIP/RTP traffic on Fly.io, you must allocate a
+# dedicated IPv4 address, bind UDP sockets to `fly-global-services` on the same
+# internal and external port, and uncomment a [[services]] block below:
+# https://docs.fly.io/networking/udp-and-tcp
+#
+# [[services]]
+#   internal_port = 5060
+#   protocol = "udp"
+#   [[services.ports]]
+#     port = 5060
