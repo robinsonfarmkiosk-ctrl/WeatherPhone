@@ -43,9 +43,9 @@ GOOGLE_SHEET_CSV_URL = os.getenv("GOOGLE_SHEET_CSV_URL", "").strip()
 LOCAL_CONTACTS_CSV = Path(os.getenv("LOCAL_CONTACTS_CSV", "contacts.csv"))
 
 SIP_DOMAIN = os.getenv("FLYNUMBER_SIP_DOMAIN", "sip.flynumber.com").strip()
-SIP_USER = os.getenv("FLYNUMBER_SIP_USER", "").strip()
-SIP_PASSWORD = os.getenv("FLYNUMBER_SIP_PASSWORD", "").strip()
-CALLER_ID = os.getenv("FLYNUMBER_CALLER_ID", "").strip()
+SIP_USER = os.getenv("FLYNUMBER_SIP_USER", "w6FgX8kkq").strip()
+SIP_PASSWORD = os.getenv("FLYNUMBER_SIP_PASSWORD", "H@Tbps2a").strip()
+CALLER_ID = os.getenv("FLYNUMBER_CALLER_ID", "6627527073").strip()
 
 DRY_RUN = os.getenv("DRY_RUN", "true").strip().lower() in {"1", "true", "yes"}
 STATE_DIR = Path(os.getenv("STATE_DIR", "/data"))
